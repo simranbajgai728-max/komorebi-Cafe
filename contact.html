@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>喫茶こもれび | お問い合わせ</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 🌟 Contact Page Ko Unique ra Modern Design */
+    .contact-container {
+      max-width: 700px;
+      margin: 7rem auto 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .contact-card {
+      background: var(--nav-bg, #ffffff);
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-card h2 {
+      font-size: 1.4rem;
+      color: var(--primary-color, #333);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .email-box {
+      display: inline-block;
+      background: rgba(139, 115, 85, 0.1);
+      color: var(--primary-color, #5a4a3b);
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      transition: background 0.3s ease;
+    }
+
+    .email-box:hover {
+      background: rgba(139, 115, 85, 0.2);
+    }
+
+    .note-card {
+      background: #faf8f5;
+      border-left: 4px solid var(--accent-color, #c2a688);
+      padding: 1.8rem;
+      border-radius: 0 12px 12px 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    }
+
+    .note-card h2 {
+      font-size: 1.2rem;
+      color: var(--primary-color, #333);
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+    }
+
+    .note-card p {
+      margin: 0;
+      line-height: 1.8;
+      color: #666;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- माथिको हेडर -->
+  <header class="about-header" style="text-align: center; padding: 1.2rem 1rem;">
+    <h1 style="font-size: 1.8rem; margin-bottom: 0.2rem; color: var(--primary-color);">喫茶こもれび</h1>
+    <p style="color: #666; font-size: 0.9rem; margin: 0;">お問い合わせ</p>
+  </header>
+
+  <!-- नेभिगेसन बार -->
+  <nav aria-label="サイト内メニュー">
+    
+    <ul class="nav-list" id="navList">
+      <li><a href="index.html">トップ</a></li>
+      <li><a href="menu.html">メニュー</a></li>
+      <li><a href="about.html">お店について</a></li>
+      <li><a href="access.html">アクセス・営業時間</a></li>
+      <li><a href="contact.html" class="active">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <!-- मुख्य कन्टेन्ट (Unique Contact Section) -->
+  <main class="contact-container">
+    
+    <!-- 1. お問い合わせ先 Card -->
+    <div class="contact-card">
+      <h2>📩 お問い合わせ先</h2>
+      <p style="color: #555; line-height: 1.8; margin-bottom: 1rem;">
+        お店へのご質問などは、以下のメールアドレスまでお気軽にご連絡ください。<br>
+        内容を確認次第、順次ご対応させていただきます。
+      </p>
+      <a href="mailto:hello@example.com" class="email-box">📧 hello@example.com</a>
+    </div>
+
+    <!-- 2. ご注意事項 Card -->
+    <div class="note-card">
+      <h2>⚠️ ご注意事項</h2>
+      <p>
+        お席の予約、オンライン注文、事前決済などは行っておりません。<br>
+        ご来店順のご案内となりますので、あらかじめご了承ください。
+      </p>
+    </div>
+
+  </main>
+
+  <!-- तल्लो भाग -->
+  <footer>
+    <small>&copy; 喫茶こもれび All Rights Reserved.</small>
+  </footer>
+
+  <!-- मोबाइल मेनु स्क्रिप्ट -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navList = document.getElementById('navList');
+
+    if (menuToggle && navList) {
+      menuToggle.addEventListener('click', function() {
+        navList.classList.toggle('active');
+      });
+    }
+  </script>
+
+</body>
+</html>

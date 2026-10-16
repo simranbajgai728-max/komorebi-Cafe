@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>喫茶こもれび | トップページ</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- 🌟 3D Tilt Effect को लागि Vanilla-Tilt Library लिङ्क -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+</head>
+<body>
+
+  <!-- हेडर -->
+  <header class="home-header">
+    <h1>喫茶こもれび</h1>
+    <p>木のぬくもりと、静かな時間が流れる場所。</p>
+  </header>
+
+  <!-- नेभिगेसन र मोबाइल ह्याम्बर्गर मेनु -->
+  <nav aria-label="サイト内メニュー">
+    
+    <ul class="nav-list" id="navList">
+      <li><a href="index.html" class="active">トップ</a></li>
+      <li><a href="menu.html">メニュー</a></li>
+      <li><a href="about.html">お店について</a></li>
+      <li><a href="access.html">アクセス・営業時間</a></li>
+      <li><a href="contact.html">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <!-- 🌟 3D Tilt इफेक्ट र Slideshow सहितको Hero सेक्सन -->
+<div class="hero-fullscreen" data-tilt data-tilt-max="12" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+  
+  <!-- हिँड्ने टेक्स्ट (फोटोजस्तो माथि नै देखिने) -->
+  <div class="hero-walking-text">
+    <div class="marquee-track">
+      <h2>✨ 喫茶こもれびへようこそ 〜 日常を離れ、心安らぐ静かなひとときを。 〜 ☕</h2>
+    </div>
+  </div>
+
+  <!-- फेरिने फोटोहरूको Slideshow बक्स -->
+  <div class="hero-slideshow">
+    <img src="image/cafe-hero.jpg" alt="こもれびカフェの店内">
+    <img src="image/cafe1.jpg" alt="Cafe Photo 1">
+    <img src="image/cafe2.jpg" alt="Cafe Photo 2">
+    <img src="image/cafe3.jpg" alt="Cafe Photo 3">
+    <img src="image/cafe4.jpg" alt="Cafe Photo 4">
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+  <main>
+    <!-- お店のご案内 -->
+    <section>
+      <h2>お店のご案内</h2>
+      <div class="split-content">
+        <div class="slideshow-box">
+          <img src="image/OIP.webp" alt="店内">
+          <img src="image/blend2.jpg" alt="コーヒー">
+          <img src="image/cafe1.jpg" alt="席の雰囲気">
+        </div>
+        <div class="animated-text">
+          <p>「喫茶こもれび」は、店内に木のぬくもりを感じられる、静かで落ち着いた小さな喫茶店です。主な魅力はハンドドリップコーヒーと手作り焼き菓子。ひとりで読書をする人も、友人と穏やかに話す人も歓迎します。</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 本日のオススメ -->
+    <section>
+      <h2>本日のオススメ</h2>
+      <div class="split-content">
+        <div class="slideshow-box">
+          <img src="image/cake3.jpg" alt="季節のチーズケーキ">
+          <img src="image/cake2.jpg" alt="焼きたてスコーン">
+          <img src="image/cakee.jpg" alt="手作りケーキ">
+        </div>
+        <div class="animated-text">
+          <p><strong>季節のチーズケーキ（680円・税込）</strong><br>濃厚なチーズの味わいと爽やかな酸味が広がる、コーヒーによく合う手作りケーキです。</p>
+          <p><a href="menu.html" style="color: var(--primary-color); font-weight: bold; text-decoration: none;">▶ メニュー一覧を見る</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 営業概要 -->
+    <section>
+      <h2>営業概要</h2>
+      <ul>
+        <li><strong>営業時間：</strong>10:00〜18:00</li>
+        <li><strong>定休日：</strong>水曜日</li>
+        <li><strong>場所：</strong>緑町1丁目3-5（緑町駅から徒歩7分）</li>
+        <li><strong>駐車場：</strong>なし</li>
+      </ul>
+      <p><a href="access.html" style="color: var(--primary-color); font-weight: bold; text-decoration: none;">▶ アクセス・詳細情報へ</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <small>&copy; 喫茶こもれび All Rights Reserved.</small>
+  </footer>
+
+  <!-- 🌟 मोबाइल मेनु खोल्ने/बन्द गर्ने जाभास्क्रिप्ट -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navList = document.getElementById('navList');
+
+    menuToggle.addEventListener('click', function() {
+      navList.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>

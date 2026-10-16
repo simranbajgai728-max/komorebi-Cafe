@@ -1,0 +1,317 @@
+@charset "UTF-8";
+
+:root {
+  --bg-color: #faf7f2;
+  --text-color: #2c221e;
+  --primary-color: #a47148;
+  --accent-color: #d97706;
+  --nav-bg: #f4eee3;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+/* ==========================================
+   🌟 हेडरको अक्षरलाई कालो (Black) रङ्गमा र एनिमेशनसहित बनाउने
+   ========================================== */
+header.home-header,
+header.menu-header,
+header.about-header,
+header.access-header,
+header.contact-header {
+  background: transparent !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🌟 सबै हेडरका शीर्षक (h1) हरू: कालो (Black) रङ्ग र एनिमेशन */
+header.home-header h1,
+header.menu-header h1,
+header.about-header h1,
+header.access-header h1,
+header.contact-header h1 {
+  margin: 0 0 0.3rem 0;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  display: inline-block;
+  
+  /* 🌟 कालो रङ्ग (Solid Black) र प्रष्ट देखिन हल्का सेतो चम्किलो छायाँ (Glow) */
+  color: #1a1a1a !important;
+  -webkit-text-fill-color: #1a1a1a !important;
+  background: none !important;
+  filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8));
+  
+  /* 🌟 एनिमेशन */
+  animation: headerMixAnim 4s ease-in-out infinite;
+}
+
+/* सबै हेडरका साना टेक्स्ट (p) हरू */
+header.home-header p,
+header.menu-header p,
+header.about-header p,
+header.access-header p,
+header.contact-header p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #2c221e !important;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+}
+
+/* हेडरको लागि एनिमेशन इफेक्ट */
+@keyframes headerMixAnim {
+  0%, 100% { 
+    transform: translateY(0) scale(1); 
+  }
+  50% { 
+    transform: translateY(-4px) scale(1.02); 
+  }
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0.8rem;
+  margin: 0;
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid #e6e2dc;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+  background-color: var(--primary-color);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(164, 113, 72, 0.3);
+}
+
+main {
+  max-width: 1000px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  margin-bottom: 2.5rem;
+  background: #fff;
+  padding: 2.2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+  border: 1px solid rgba(230, 226, 220, 0.6);
+}
+
+h2 {
+  font-size: 1.4rem;
+  border-left: 5px solid var(--accent-color);
+  padding-left: 0.8rem;
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+/* 🌟 पछाडि बिस्तारै (Slow motion) फेरिने फोटोहरूको Slideshow */
+.hero-fullscreen {
+  position: relative;
+  width: 100%;
+  height: 75vh;
+  min-height: 450px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  background-color: #000;
+}
+
+.hero-slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* फोटो सधैँ पछाडि बस्छ */
+}
+
+.hero-slideshow img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  /* जम्मा समय २४ सेकेन्ड - एकदमै बिस्तारै फेरिने */
+  animation: slowFadeSlide 24s infinite;
+  transition: opacity 3s ease-in-out;
+}
+
+/* ५ वटा फोटोको लागि पालैपालो आउने समय (Delay) */
+.hero-slideshow img:nth-child(1) { animation-delay: 0s; }
+.hero-slideshow img:nth-child(2) { animation-delay: 4.8s; }
+.hero-slideshow img:nth-child(3) { animation-delay: 9.6s; }
+.hero-slideshow img:nth-child(4) { animation-delay: 14.4s; }
+.hero-slideshow img:nth-child(5) { animation-delay: 19.2s; }
+
+/* ढिलो र स्मूथ परिवर्तन हुने Keyframes */
+@keyframes slowFadeSlide {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  10% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.05); /* बिस्तारै जुम हुने */
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 🌟 माथिपट्टि सधैँ चलिरहने हिँड्ने टेक्स्ट (Marquee Text) */
+.hero-walking-text {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  z-index: 10; /* फोटोभन्दा माथि देखिन यो धेरै महत्त्वपूर्ण छ */
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.2); /* टेक्स्ट अझ प्रष्ट देखिन हल्का कालो पारदर्शी ब्याकग्राउन्ड */
+  backdrop-filter: blur(2px);
+  padding: 0.5rem 0;
+}
+
+.marquee-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: walkText 20s linear infinite; /* टेक्स्ट हिँड्ने गति */
+}
+
+.marquee-track h2 {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  padding-right: 4rem;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: none !important;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes walkText {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* --- अन्य सेक्सन र स्लाइडशो स्टाइलहरू --- */
+.split-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.slideshow-box {
+  flex: 1;
+  min-width: 280px;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.slideshow-box img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: cardSlideSuperSlow 24s infinite;
+  transition: opacity 2.5s ease-in-out;
+}
+
+.slideshow-box img:nth-child(1) { animation-delay: 0s; }
+.slideshow-box img:nth-child(2) { animation-delay: 8s; }
+.slideshow-box img:nth-child(3) { animation-delay: 16s; }
+
+@keyframes cardSlideSuperSlow {
+  0% { opacity: 0; transform: scale(1); }
+  8% { opacity: 1; }
+  30% { opacity: 1; transform: scale(1.03); }
+  40% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.animated-text {
+  flex: 1.2;
+  min-width: 280px;
+}
+
+/* Footer ko design aaru page haru ma pani ramro banaune */
+footer {
+  background-color: #2c2420; /* कफिको जस्तै गहिरो र्यान/ब्राउन कलर */
+  color: #f5f2eb;            /* टेक्स्टको रङ्ग हल्का सेतो/क्रिम */
+  text-align: center;
+  padding: 1.8rem 1rem;
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  border-top: 3px solid var(--accent-color, #c2a688);
+}
+
+footer small {
+  display: block;
+  opacity: 0.9;
+}
+/* ==========================================
+   🌟 मेनुका सबै फोटोहरूलाई एउटै फिक्स साइजमा मिलाउने कोड
+   ========================================== */
+.menu-img-box {
+  width: 100% !important;
+  height: 200px !important;
+  overflow: hidden !important;
+  background-color: #f4eee3 !important;
+}
+
+.menu-img-box img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.4s ease !important;
+}
+
+.menu-card:hover .menu-img-box img {
+  transform: scale(1.05) !important;
+}

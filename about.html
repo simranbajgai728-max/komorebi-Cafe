@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>喫茶こもれび | お店について</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 🌟 सबैतिर बराबर र ठिक्कको साइज (Square/Balanced look) */
+    .balanced-img {
+      width: 100%;
+      max-width: 320px; /* न धेरै ठूलो, न सानो */
+      height: 220px;    /* उचाइ निश्चित गरिएकोले लाामो हुँदैन, बराबर देखिन्छ */
+      object-fit: cover; /* फोटोलाई काटिन वा तन्किन दिँदैन, चिटिक्क मिलाउँछ */
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      animation: normalFadeIn 1s ease-out forwards;
+    }
+
+    @keyframes normalFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- माथिको हेडर -->
+  <header class="about-header" style="text-align: center; padding: 1.2rem 1rem;">
+    <h1 style="font-size: 1.8rem; margin-bottom: 0.2rem; color: var(--primary-color);">喫茶こもれび</h1>
+    <p style="color: #666; font-size: 0.9rem; margin: 0;">お店のこだわりと空間のご案内</p>
+  </header>
+
+  <!-- नेभिगेसन बार -->
+  <nav aria-label="サイト内メニュー">
+    
+    <ul class="nav-list" id="navList">
+      <li><a href="index.html">トップ</a></li>
+      <li><a href="menu.html">メニュー</a></li>
+      <li><a href="about.html" class="active">お店について</a></li>
+      <li><a href="access.html">アクセス・営業時間</a></li>
+      <li><a href="contact.html">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <!-- मुख्य कन्टेन्ट -->
+  <main style="max-width: 950px; margin: 6rem auto 2rem auto; padding: 0 1rem;">
+    
+    <!-- 1. 店のコンセプト -->
+    <section style="margin-bottom: 3.5rem;">
+      <h2>店のコンセプト</h2>
+      <div class="split-content" style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 280px; text-align: center;">
+          <img src="image/OIP.webp" alt="こもれびカフェの店内" class="balanced-img">
+        </div>
+        <div style="flex: 1; min-width: 280px;">
+          <p style="font-size: 1.05rem; line-height: 1.8;">
+            「喫茶こもれび」は、店内に木のぬくもりを感じられる、静かで落ち着いた小さな喫茶店です。<br>
+            木漏れ日のように優しく温かい光が差し込む店内で、心安らぐひとときをお過ごしいただけます。こだわりの自家焙煎珈琲と手作り菓子を用意して、皆さまのお越しをお待ちしております。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 私たちのこだわり -->
+    <section style="margin-bottom: 3.5rem;">
+      <h2>私たちのこだわり</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+        
+        <div style="background: var(--nav-bg); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-color);">
+          <h3 style="color: var(--primary-color); margin-top: 0;">☕ 自家焙煎珈琲</h3>
+          <p style="margin-bottom: 0; font-size: 0.95rem;">一杯ずつ丁寧にハンドドリップでお淹れします。芳醇な香りと深い味わいをお楽しみください。</p>
+        </div>
+
+        <div style="background: var(--nav-bg); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-color);">
+          <h3 style="color: var(--primary-color); margin-top: 0;">🪵 木のぬくもり空間</h3>
+          <p style="margin-bottom: 0; font-size: 0.95rem;">天然木を基調としたインテリアで統一し、都会の喧騒を忘れられるリラックス空間を提供します。</p>
+        </div>
+
+        <div style="background: var(--nav-bg); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-color);">
+          <h3 style="color: var(--primary-color); margin-top: 0;">🍰 手作り焼き菓子</h3>
+          <p style="margin-bottom: 0; font-size: 0.95rem;">コーヒーにぴったりの季節限定ケーキやスコーンを毎日店内で手作りして焼き上げています。</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. 過ごし方のご提案 -->
+    <section style="margin-bottom: 2rem;">
+      <h2>過ごし方のご提案</h2>
+      <div class="split-content" style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 280px;">
+          <p style="font-size: 1.05rem; line-height: 1.8;">
+            おひとりさまでゆっくり読書を楽しんだり、ご友人と静かにおしゃべりをしたり。どんな過ごし方も歓迎いたします。<br>
+            Wi-Fiや電源を備えた席もご用意しておりますので、ご自分のペースで慌ただしい日常を離れてリラックスしてください。
+          </p>
+        </div>
+        <div style="flex: 1; min-width: 280px; text-align: center;">
+          <img src="image/cafe-coffee.jpg" alt="コーヒーとくつろぎの空間" class="balanced-img">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- तल्लो भाग -->
+  <footer>
+    <small>&copy; 喫茶こもれび All Rights Reserved.</small>
+  </footer>
+
+  <!-- मोबाइल मेनु स्क्रिप्ट -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navList = document.getElementById('navList');
+
+    if (menuToggle && navList) {
+      menuToggle.addEventListener('click', function() {
+        navList.classList.toggle('active');
+      });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メニュー | 喫茶こもれび</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 🌟 メニュータブボタンのデザイン */
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .tab-btn {
+      background-color: #f4eee3;
+      border: 2px solid var(--accent-color);
+      color: var(--primary-color);
+      padding: 0.6rem 1.5rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .tab-btn:hover, .tab-btn.active {
+      background-color: var(--accent-color);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .menu-category {
+      display: none; /* 初期状態は非表示 */
+      margin-bottom: 3.5rem;
+      animation: fadeIn 0.5s ease;
+    }
+    .menu-category.active-section {
+      display: block; /* 選択されたセクションを表示 */
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .menu-category h2 {
+      font-size: 1.6rem;
+      border-left: 5px solid var(--accent-color);
+      padding-left: 0.8rem;
+      color: var(--primary-color);
+      margin-bottom: 1.8rem;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    
+    /* 🌟 カードのデザインとアニメーション */
+    .menu-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      border: 1px solid rgba(230, 226, 220, 0.8);
+    }
+    .menu-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(164, 113, 72, 0.2);
+    }
+
+    .menu-img-box {
+      width: 100% !important;
+      height: 200px !important;
+      overflow: hidden !important;
+      background-color: #f4eee3 !important;
+      position: relative;
+    }
+    .menu-img-box img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      transition: transform 0.5s ease !important;
+    }
+    .menu-card:hover .menu-img-box img {
+      transform: scale(1.08) !important;
+    }
+
+    .menu-card-content {
+      padding: 1.5rem;
+    }
+    .menu-card-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+    .menu-card-title h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: var(--text-color);
+    }
+    .menu-price {
+      font-weight: bold;
+      color: var(--accent-color);
+      font-size: 1.1rem;
+      background: #fef3c7;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+    }
+    .menu-desc {
+      margin: 0;
+      font-size: 0.92rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘダー -->
+  <header class="menu-header">
+    <h1>喫茶こもれび</h1>
+    <p>こだわりのドリンク、手作りスイーツ、お食事</p>
+  </header>
+
+  <!-- ナビゲーション -->
+  <nav aria-label="サイト内メニュー">
+    <ul>
+      <li><a href="index.html">トップ</a></li>
+      <li><a href="menu.html" class="active">メニュー</a></li>
+      <li><a href="about.html">お店について</a></li>
+      <li><a href="access.html">アクセス・営業時間</a></li>
+      <li><a href="contact.html">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <main style="max-width: 1000px;">
+    
+    <!-- 🌟 カテゴリータブボタン -->
+    <div class="menu-tabs">
+      <button class="tab-btn active" onclick="switchTab('recommend', event)">おすすめ </button>
+      <button class="tab-btn" onclick="switchTab('drinks', event)">ドリンク </button>
+      <button class="tab-btn" onclick="switchTab('desserts', event)">デザート・ベイク </button>
+     
+    </div>
+
+    <!-- ⭐ 1. おすすめセクション (5商品すべてを表示) -->
+    <div id="recommend" class="menu-category active-section">
+      <h2>おすすめメニュー </h2>
+      <div class="menu-grid">
+        
+        <div class="menu-card">
+          <div class="menu-img-box"><img src="image/blend2.jpg" alt="こもれびブレンド"></div>
+          <div class="menu-card-content">
+            <div class="menu-card-title"><h3>こもれびブレンド</h3><span class="menu-price">550円</span></div>
+            <p class="menu-desc">丁寧に淹れた、お店自慢のオリジナルブレンドコーヒー。豊かな香りと深いコクをお楽しみください。</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-img-box"><img src="image/latte.jpg" alt="カフェラテ"></div>
+          <div class="menu-card-content">
+            <div class="menu-card-title"><h3>カフェラテ</h3><span class="menu-price">620円</span></div>
+            <p class="menu-desc">エスプレッソとまろやかなミルクが織りなす、優しい味わいのカフェラテです。</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-img-box"><img src="image/lemonade.jpg" alt="自家製レモネード"></div>
+          <div class="menu-card-content">
+            <div class="menu-card-title"><h3>自家製レモネード</h3><span class="menu-price">580円</span></div>
+            <p class="menu-desc">爽やかなレモンの酸味と程よい甘さが広がる、心和むリフレッシュドリンク。</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-img-box"><img src="image/cheesecake.jpg" alt="季節のチーズケーキ"></div>
+          <div class="menu-card-content">
+            <div class="menu-card-title"><h3>季節のチーズケーキ</h3><span class="menu-price">680円</span></div>
+            <p class="menu-desc">濃厚なチーズの味わいと爽やかな酸味が広がる、コーヒーによく合う手作りケーキです。</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-img-box"><img src="image/scone.jpg" alt="焼きたてスコーン"></div>
+          <div class="menu-card-content">
+            <div class="menu-card-title"><h3>焼きたてスコーン</h3><span class="menu-price">420円</span></div>
+            <p class="menu-desc">外はサクッと、中はしっとりとした焼き立ての香ばしいスコーン。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ☕ 2. ドリンク -->
+    <div id="drinks" class="menu-category">
+      <h2>ドリンク </h2>
+      <div class="menu-grid">
+        
+        <div class="menu-card">
+          <div class="menu-img-box"><img src="image/blend4.jpg" alt="こもれびブレンド"></div>
+          <div class="menu-card-content">
+            <div class="menu-card-title"><h3>こもれびブレンド</h3><span class="menu-price">550円</span></div>
+            <p class="menu-desc">丁寧に淹れた、お店自慢のオリジナルブレンドコーヒー。</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-img-box"><img src="image/latte.jpg" alt="カフェラテ"></div>
+          <div class="menu-card-content">
+            <div class="menu-card-title"><h3>カフェラテ</h3><span class="menu-price">620円</span></div>
+            <p class="menu-desc">エスプレッソとまろやかなミルクが織りなす優しい味わい。</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-img-box"><img src="image/lemonade.jpg" alt="自家製レモネード"></div>
+          <div class="menu-card-content">
+            <div class="menu-card-title"><h3>自家製レモネード</h3><span class="menu-price">580円</span></div>
+            <p class="menu-desc">爽やかなレモンの酸味と程よい甘さが広がるドリンク。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 🍰 3. デザート・ベイク -->
+    <div id="desserts" class="menu-category">
+      <h2>ケーキ・デザート </h2>
+      <div class="menu-grid">
+        
+        <div class="menu-card">
+          <div class="menu-img-box"><img src="image/cheesecake.jpg" alt="季節のチーズケーキ"></div>
+          <div class="menu-card-content">
+            <div class="menu-card-title"><h3>季節のチーズケーキ</h3><span class="menu-price">680円</span></div>
+            <p class="menu-desc">濃厚なチーズの味わいと爽やかな酸味が広がる手作りケーキです。</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-img-box"><img src="image/cake2.jpg" alt="焼きたてスコーン"></div>
+          <div class="menu-card-content">
+            <div class="menu-card-title"><h3>焼きたてスコーン</h3><span class="menu-price">420円</span></div>
+            <p class="menu-desc">外はサクッと、中はしっとりとした焼き立ての香ばしいスコーン。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+   
+    </div>
+
+    <!-- 💡 税込みの注記 -->
+    <div style="text-align: center; margin-top: 3rem; color: #777; font-size: 0.9rem;">
+      <p>※ すべてのメニューは税込価格となっております。</p>
+    </div>
+
+  </main>
+
+  <!-- 🌟 タブ切り替え用 JavaScript -->
+  <script>
+    function switchTab(targetId, event) {
+      const categories = document.querySelectorAll('.menu-category');
+      categories.forEach(cat => cat.classList.remove('active-section'));
+
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(targetId).classList.add('active-section');
+      event.currentTarget.classList.add('active');
+    }
+  </script>
+
+  <footer>
+    <small>&copy; 喫茶こもれび All Rights Reserved.</small>
+  </footer>
+
+</body>
+</html>
